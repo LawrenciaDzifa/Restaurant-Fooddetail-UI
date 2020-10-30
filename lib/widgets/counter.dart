@@ -37,7 +37,7 @@ class CountButtonView extends StatefulWidget {
 
 class _CountButtonViewState extends State<CountButtonView> {
   int count = 1;
-
+  double price = 4.99;
   @override
   void initState() {
     super.initState();
@@ -52,6 +52,7 @@ class _CountButtonViewState extends State<CountButtonView> {
   void increaseCount() {
     setState(() {
       count++;
+      price * count;
     });
   }
 
@@ -59,6 +60,7 @@ class _CountButtonViewState extends State<CountButtonView> {
     setState(() {
       if (count != 0) {
         count--;
+      price * count;
       }
     });
   }
