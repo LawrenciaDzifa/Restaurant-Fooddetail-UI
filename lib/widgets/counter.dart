@@ -52,7 +52,6 @@ class _CountButtonViewState extends State<CountButtonView> {
   void increaseCount() {
     setState(() {
       count++;
-      price * count;
     });
   }
 
@@ -60,7 +59,6 @@ class _CountButtonViewState extends State<CountButtonView> {
     setState(() {
       if (count != 0) {
         count--;
-      price * count;
       }
     });
   }
