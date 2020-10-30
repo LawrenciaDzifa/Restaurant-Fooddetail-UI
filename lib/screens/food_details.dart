@@ -43,7 +43,7 @@ class Food_details extends StatelessWidget {
                         color: Colors.white,
                         size: 25,
                       ),
-                      onPressed: null)
+                      onPressed: (){})
                 ],
               ),
             ),
