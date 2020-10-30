@@ -36,12 +36,12 @@ class CountButtonView extends StatefulWidget {
 }
 
 class _CountButtonViewState extends State<CountButtonView> {
-  int count;
+  int count = 1;
 
   @override
   void initState() {
     super.initState();
-    count = widget.initialCount;
+    count = 0;
   }
 
   @override
@@ -49,15 +49,19 @@ class _CountButtonViewState extends State<CountButtonView> {
     super.dispose();
   }
 
-  void updateCount(int addValue) {
-    if (count + addValue >= 0) {
-      setState(() {
-        count += addValue;
-      });
-      if (widget.onChange != null) {
-        widget.onChange(count);
-      }
-    }
+  void increaseCount() {
+    setState(() {
+      count++;
+    });
+  }
+
+  void decreaseCount() {
+    setState(() {
+      if (count != 0) {
+        count--;
+        
+      } else {}
+    });
   }
 
   @override
@@ -83,7 +87,7 @@ class _CountButtonViewState extends State<CountButtonView> {
                       borderRadius: BorderRadius.circular(15)),
                   child: GestureDetector(
                       onTap: () {
-                        updateCount(-1);
+                        decreaseCount();
                       },
                       child: Container(
                           width: 40.0,
@@ -94,7 +98,7 @@ class _CountButtonViewState extends State<CountButtonView> {
                 Container(
                   child: Center(
                       child: Text(
-                    '1',
+                    '$count',
                     style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -110,13 +114,13 @@ class _CountButtonViewState extends State<CountButtonView> {
                       borderRadius: BorderRadius.circular(15)),
                   child: GestureDetector(
                       onTap: () {
-                        updateCount(1);
+                        increaseCount();
                       },
                       child: Container(
                           width: 40.0,
                           child: Center(
-                              child: Icon(Icons.add,
-                                  color: Colors.grey[600])))),
+                              child:
+                                  Icon(Icons.add, color: Colors.grey[600])))),
                 ),
               ],
             ),
