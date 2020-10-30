@@ -59,8 +59,7 @@ class _CountButtonViewState extends State<CountButtonView> {
     setState(() {
       if (count != 0) {
         count--;
-        
-      } else {}
+      }
     });
   }
 
