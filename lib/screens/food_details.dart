@@ -25,25 +25,22 @@ class Food_details extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                      icon: Icon(
-                        Icons.close_outlined,
-                        color: Colors.white,
-                        size: 25,
-                      ),
-                      
-                        onPressed: (){
-                          Navigator.pop(context);
-                        },
-
-
-                      ),
+                    icon: Icon(
+                      Icons.close_outlined,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
                   IconButton(
                       icon: Icon(
                         Icons.shopping_bag_outlined,
                         color: Colors.white,
                         size: 25,
                       ),
-                      onPressed: (){})
+                      onPressed: () {})
                 ],
               ),
             ),
@@ -106,45 +103,50 @@ class Food_details extends StatelessWidget {
                     ),
                     SizedBox(height: 30),
                     Row(
-                      children: [CountButtonView()],
+                      children: [
+                        CountButtonView(),
+                        SizedBox(width:60.0),
+                        Container(
+                          padding: EdgeInsets.only(top:15.0, bottom:15.0),
+                          margin: EdgeInsets.only( right: 6.0),
+                          width: MediaQuery.of(context).size.width * 0.15,
+                          decoration: BoxDecoration(
+                              color: Colors.amber,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Center(
+                              child: Text(
+                            '\$4.99',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18.0,
+                                fontFamily: 'Poppins'),
+                          )),
+                        )
+                      ],
                     ),
-                    SizedBox(height:10),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
                           padding: EdgeInsets.all(15.0),
-                          margin: EdgeInsets.only(top:30.0, left:20.0,right:10.0),
-                          width: MediaQuery.of(context).size.width *0.7,
+                          margin: EdgeInsets.only(
+                              top: 20.0, left: 20.0, right: 10.0),
+                          width: MediaQuery.of(context).size.width * 0.7,
                           decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(15)
-                          ),
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(15)),
                           child: Center(
                             child: Text(
                               'Add to Cart',
-                              style:TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                              ), 
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
-                        Container(
-                          padding: EdgeInsets.all(15.0),
-                          margin: EdgeInsets.only(top:30.0, right:6.0),
-                          width: MediaQuery.of(context).size.width *0.15,
-                          decoration: BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius: BorderRadius.circular(15)
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.tune_outlined
-                            ),
-                          ),
-                        )
                       ],
                     )
                   ],

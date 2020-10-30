@@ -94,7 +94,7 @@ class _CountButtonViewState extends State<CountButtonView> {
                 Container(
                   child: Center(
                       child: Text(
-                    '0',
+                    '1',
                     style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
