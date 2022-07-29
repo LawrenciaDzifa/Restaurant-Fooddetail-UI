@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui/screens/home.dart';
+
 void main() {
   runApp(Home());
 }
@@ -10,7 +11,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Restaursnt',
+      title: 'Restaurant',
       home: MainHome(),
     );
   }
