@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_ui/constants.dart';
-import 'package:restaurant_ui/modules/food_bank.dart';
+import 'package:restaurant_ui/model/food_bank.dart';
 import 'package:restaurant_ui/screens/cart.dart';
-import 'package:restaurant_ui/screens/home.dart';
 import 'package:restaurant_ui/widgets/counter.dart';
 
 class FoodDetails extends StatefulWidget {
-  // final Food food;
-  // const FoodDetails({required this.food});
+  const FoodDetails({Key key, this.food}) : super(key: key);
+  final Food food;
   @override
   State<FoodDetails> createState() => _FoodDetailsState();
 }
 
 class _FoodDetailsState extends State<FoodDetails> {
+  List<Food> allFoods = getAllFoods();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +23,7 @@ class _FoodDetailsState extends State<FoodDetails> {
             Container(
               height: MediaQuery.of(context).size.height * 1 / 2,
               child: Image.asset(
-                'assets/images/sandwich2.jpg',
+                widget.food.image,
                 fit: BoxFit.cover,
               ),
             ),
@@ -68,7 +69,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Egg Surfer',
+                          widget.food.name,
                           style: TextStyle(
                             color: Colors.grey[900],
                             fontSize: 25.0,
@@ -86,8 +87,9 @@ class _FoodDetailsState extends State<FoodDetails> {
                         ),
                       ],
                     ),
+                    sizedBox_30,
                     Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. tempor incididunt ut labore et dolore magna aliqua',
+                      widget.food.description,
                       style: descriptionTextStyle,
                     ),
                     sizedBox_50,
@@ -97,15 +99,16 @@ class _FoodDetailsState extends State<FoodDetails> {
                         CountButtonView(),
                         // SizedBox(width: 60.0),
                         Container(
-                          padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 8.0, vertical: 15.0),
                           margin: EdgeInsets.only(right: 6.0),
-                          width: MediaQuery.of(context).size.width * 0.15,
+                          //width: MediaQuery.of(context).size.width * 0.1,
                           decoration: BoxDecoration(
                               color: Colors.amber,
                               borderRadius: BorderRadius.circular(15)),
                           child: Center(
                               child: Text(
-                            '\$4.99',
+                            widget.food.price,
                             style: priceTextStyle,
                           )),
                         )
@@ -120,7 +123,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (Context) => Cart()));
+                                    builder: (context) => Cart()));
                           },
                           child: Container(
                             padding: EdgeInsets.all(15.0),

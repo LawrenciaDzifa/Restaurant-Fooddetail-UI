@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_ui/constants.dart';
+import 'package:restaurant_ui/providers/cart_provider.dart';
 
 class Cart extends StatefulWidget {
   // const Cart({ Key? key }) : super(key: key);
@@ -11,6 +13,7 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(

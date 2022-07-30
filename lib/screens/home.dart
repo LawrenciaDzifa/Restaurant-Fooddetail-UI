@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui/modules/food_bank.dart';
+import 'package:restaurant_ui/model/food_bank.dart';
 import 'package:restaurant_ui/widgets/food_card.dart';
-import 'package:restaurant_ui/widgets/food_menu.dart';
 
 class MainHome extends StatefulWidget {
   @override
@@ -9,7 +8,7 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
-  List<Food> allFoods = getAllFoods();
+  //List<Food> allFoods = getAllFoods();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

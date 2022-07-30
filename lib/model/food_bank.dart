@@ -10,7 +10,7 @@ class Food {
 List<Food> getAllFoods() => [
       Food(
           name: 'Egg Surfer',
-          price: '\$4.99',
+          price: '\$2.99',
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
           image: 'assets/images/sandwich1.jpg'),
