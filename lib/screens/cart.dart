@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_ui/constants.dart';
+import 'package:restaurant_ui/providers/cart_provider.dart';
 
 class Cart extends StatefulWidget {
   // const Cart({ Key? key }) : super(key: key);
@@ -11,6 +13,7 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context);
 
     return Scaffold(
       backgroundColor: Colors.grey[100],
@@ -23,8 +26,9 @@ class _CartState extends State<Cart> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 4,
+              itemCount: cartProvider.cartItems.length,
               itemBuilder: (BuildContext context, index) {
+                final item = cartProvider.cartItems[index];
                 return Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -38,27 +42,32 @@ class _CartState extends State<Cart> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Stack(children: [
-                            Image.asset('assets/images/sandwich1.jpg'),
-                            IconButton(
-                              onPressed: () {
-                                print('Item removed from cart');
-                              },
-                              icon: Icon(Icons.close),
-                            ),
-                          ]),
+                          Expanded(
+                            child: Stack(children: [
+                              Image.asset(item.image),
+                              IconButton(
+                                onPressed: () {
+                                  print('Item removed from cart');
+                                },
+                                icon: Icon(Icons.close),
+                              ),
+                            ]),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Row(
                                 children: [
                                   Text(
-                                    'Egg Sufer',
+                                    item.name,
                                     style: cartTextStyle,
                                   ),
                                   SizedBox(width: 40),
                                   Text(
-                                    '4.99\$',
+                                    item.price,
                                     style: cartTextStyle,
                                   ),
                                 ],

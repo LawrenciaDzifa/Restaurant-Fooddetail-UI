@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_ui/constants.dart';
 import 'package:restaurant_ui/model/food_bank.dart';
+import 'package:restaurant_ui/providers/cart_provider.dart';
 import 'package:restaurant_ui/screens/cart.dart';
 import 'package:restaurant_ui/widgets/counter.dart';
 
@@ -16,6 +18,8 @@ class _FoodDetailsState extends State<FoodDetails> {
 
   @override
   Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context);
+    final itemCount = cartProvider.cartItems.length;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -36,19 +40,34 @@ class _FoodDetailsState extends State<FoodDetails> {
                     icon: Icon(
                       Icons.close_outlined,
                       color: Colors.white,
-                      size: 25,
+                      size: 40,
                     ),
                     onPressed: () {
                       Navigator.pop(context);
                     },
                   ),
-                  IconButton(
-                      icon: Icon(
-                        Icons.shopping_bag_outlined,
-                        color: Colors.white,
-                        size: 25,
+                  Stack(
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.shopping_bag_outlined,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Cart()));
+                        },
                       ),
-                      onPressed: () {})
+                      Padding(
+                        padding: EdgeInsets.all(23.0),
+                        child: Text(
+                          itemCount.toString(),
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
@@ -111,22 +130,18 @@ class _FoodDetailsState extends State<FoodDetails> {
                         )
                       ],
                     ),
-                    sizedBox_30,
+                    sizedBox_50,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Cart()));
+                            cartProvider.addToCart(widget.food);
                           },
                           child: Container(
-                            padding: EdgeInsets.all(15.0),
-                            margin: EdgeInsets.only(
-                                top: 20.0, left: 20.0, right: 10.0),
-                            width: MediaQuery.of(context).size.width * 0.7,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 15),
+                            //width: MediaQuery.of(context).size.width * 0.7,
                             decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(15)),
