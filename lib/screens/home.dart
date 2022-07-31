@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_ui/model/food_bank.dart';
 import 'package:restaurant_ui/widgets/food_card.dart';
 
 class MainHome extends StatefulWidget {

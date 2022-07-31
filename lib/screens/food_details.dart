@@ -97,12 +97,9 @@ class _FoodDetailsState extends State<FoodDetails> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CountButtonView(),
-                        // SizedBox(width: 60.0),
                         Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: 8.0, vertical: 15.0),
-                          margin: EdgeInsets.only(right: 6.0),
-                          //width: MediaQuery.of(context).size.width * 0.1,
                           decoration: BoxDecoration(
                               color: Colors.amber,
                               borderRadius: BorderRadius.circular(15)),

@@ -9,33 +9,32 @@ class Food {
 
 List<Food> getAllFoods() => [
       Food(
-          name: 'Egg Surfer',
+          name: 'Beef Burger',
           price: '\$2.99',
           description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+              'Tasty, delicious, and will get you craving more on the first bite. Juicy, mouthwatering, tasty, and everything you’d ever want to savor. ',
           image: 'assets/images/sandwich1.jpg'),
       Food(
           name: 'Jollof',
           price: '\$14.99',
-          description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          description: 'Enjoy this rich, healty and tasty assorted dish. ',
           image: 'assets/images/jollof.jpg'),
       Food(
           name: 'Fried Rice',
           price: '\$34.99',
           description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+              'This vegetarian dish includes lots of vegetables and sauces giving it a unique tempting flavor and color.  ',
           image: 'assets/images/friedrice.jpg'),
       Food(
           name: 'Waakye',
           price: '\$19',
           description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+              'Enjoy this rich Ghanaian traditional rice and beans dish. ',
           image: 'assets/images/waakye.png'),
       Food(
-          name: 'Banku',
+          name: 'Banku & Tilapia',
           price: '\$40',
           description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+              'A delicious fusion of African and Western recipes and tastes.',
           image: 'assets/images/banku.jpg'),
     ];

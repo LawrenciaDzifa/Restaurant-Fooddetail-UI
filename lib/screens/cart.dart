@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:restaurant_ui/constants.dart';
-import 'package:restaurant_ui/providers/cart_provider.dart';
 
 class Cart extends StatefulWidget {
   // const Cart({ Key? key }) : super(key: key);

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:restaurant_ui/model/food_bank.dart';
-import 'package:restaurant_ui/providers/cart_provider.dart';
 import 'package:restaurant_ui/screens/food_details.dart';
 
 class Meal extends StatefulWidget {
